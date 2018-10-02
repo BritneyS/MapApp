@@ -11,8 +11,8 @@ import UIKit
 
 class Location {
     
-    var latitude: Double = 0.0
-    var longitude: Double = 0.0
+    var latitude: Double?
+    var longitude: Double?
     
     init(latitude: Double, longitude: Double) {
         self.latitude = latitude
