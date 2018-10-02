@@ -14,15 +14,30 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var titleLabel: UILabel!
     
+
+    //MARK: Properties
+    
+    var locations: [Location] = []
+
     //MARK: - Properties
     
     var selectedIndex: Int?
 
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        populateData()
     }
+    
+    //MARK: Methods
 
+    func populateData() {
+        let locationDatabase = LocationDatabase()
+        for location in locationDatabase.locationDatabase {
+            locations.append(location)
+        }
+    }
 
 }
 
@@ -30,12 +45,14 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return locations.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "LocationCell", for: indexPath)
+        let location = locations[indexPath.row] as! Park
+        cell.textLabel?.text = location.name
         return cell 
     }
     
