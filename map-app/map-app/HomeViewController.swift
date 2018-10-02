@@ -9,6 +9,11 @@
 import UIKit
 
 class HomeViewController: UIViewController {
+    
+    //MARK: - Outlets
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
