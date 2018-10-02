@@ -14,9 +14,15 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var titleLabel: UILabel!
     
+
     //MARK: Properties
     
     var locations: [Location] = []
+
+    //MARK: - Properties
+    
+    var selectedIndex: Int?
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,5 +57,15 @@ extension HomeViewController: UITableViewDataSource{
     }
     
     
+}
+
+//MARK: - TableViewDelegate Methods
+
+extension HomeViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        
+        selectedIndex = indexPath.row
+        return indexPath
+    }
 }
 

@@ -15,6 +15,7 @@
 		43C5CDDE2163E13E00EDB721 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C5CDDD2163E13E00EDB721 /* Location.swift */; };
 		43C5CDE02163E49600EDB721 /* Park.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C5CDDF2163E49600EDB721 /* Park.swift */; };
 		43C5CDE42163F5DC00EDB721 /* LocationDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C5CDE32163F5DC00EDB721 /* LocationDatabase.swift */; };
+		43C5CDE6216404ED00EDB721 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C5CDE5216404ED00EDB721 /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		43C5CDDD2163E13E00EDB721 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		43C5CDDF2163E49600EDB721 /* Park.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Park.swift; sourceTree = "<group>"; };
 		43C5CDE32163F5DC00EDB721 /* LocationDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDatabase.swift; sourceTree = "<group>"; };
+		43C5CDE5216404ED00EDB721 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		D775E7D17A31D24A0A1BBDC0 /* Pods-map-app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-map-app.release.xcconfig"; path = "Pods/Target Support Files/Pods-map-app/Pods-map-app.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -73,6 +75,7 @@
 				43C5CDDD2163E13E00EDB721 /* Location.swift */,
 				43C5CDDF2163E49600EDB721 /* Park.swift */,
 				43C5CDE32163F5DC00EDB721 /* LocationDatabase.swift */,
+				43C5CDE5216404ED00EDB721 /* MapViewController.swift */,
 			);
 			path = "map-app";
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 				43C5CDDE2163E13E00EDB721 /* Location.swift in Sources */,
 				06CFAD3C2163AC700039651B /* AppDelegate.swift in Sources */,
 				43C5CDE02163E49600EDB721 /* Park.swift in Sources */,
+				43C5CDE6216404ED00EDB721 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
