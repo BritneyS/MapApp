@@ -11,5 +11,13 @@ import UIKit
 
 class Park: Location {
     
-    var name: String = ""
+    var name: String?
+    
+    init(name: String, latitude: Double, longitude: Double) {
+       
+        super.init(latitude: latitude, longitude: longitude)
+        self.name = name
+    }
+    
+    
 }
