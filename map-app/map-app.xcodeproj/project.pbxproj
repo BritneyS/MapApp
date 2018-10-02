@@ -12,9 +12,9 @@
 		06CFAD412163AC700039651B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06CFAD3F2163AC700039651B /* Main.storyboard */; };
 		06CFAD432163AC710039651B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06CFAD422163AC710039651B /* Assets.xcassets */; };
 		06CFAD462163AC710039651B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06CFAD442163AC710039651B /* LaunchScreen.storyboard */; };
-		422912B33C3640EA64CB7882 /* Pods_map_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1940793B038A500DD560C177 /* Pods_map_app.framework */; };
 		43C5CDDE2163E13E00EDB721 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C5CDDD2163E13E00EDB721 /* Location.swift */; };
 		43C5CDE02163E49600EDB721 /* Park.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C5CDDF2163E49600EDB721 /* Park.swift */; };
+		BDF1F39DFE5D5047651A9626 /* Pods_map_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A827C63EA06538B3EABCAC57 /* Pods_map_app.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,9 +26,9 @@
 		06CFAD452163AC710039651B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		06CFAD472163AC710039651B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0CEF772CACFDFE7304ADCC97 /* Pods-map-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-map-app.debug.xcconfig"; path = "Pods/Target Support Files/Pods-map-app/Pods-map-app.debug.xcconfig"; sourceTree = "<group>"; };
-		1940793B038A500DD560C177 /* Pods_map_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_map_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		43C5CDDD2163E13E00EDB721 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		43C5CDDF2163E49600EDB721 /* Park.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Park.swift; sourceTree = "<group>"; };
+		A827C63EA06538B3EABCAC57 /* Pods_map_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_map_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D775E7D17A31D24A0A1BBDC0 /* Pods-map-app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-map-app.release.xcconfig"; path = "Pods/Target Support Files/Pods-map-app/Pods-map-app.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -37,7 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				422912B33C3640EA64CB7882 /* Pods_map_app.framework in Frameworks */,
+				BDF1F39DFE5D5047651A9626 /* Pods_map_app.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,7 +89,7 @@
 		DC732D54D5AEA70563D73C32 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1940793B038A500DD560C177 /* Pods_map_app.framework */,
+				A827C63EA06538B3EABCAC57 /* Pods_map_app.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -195,14 +195,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-map-app/Pods-map-app-frameworks.sh",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework",
-				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework",
-				"${DWARF_DSYM_FOLDER_PATH}/Mapbox.framework.dSYM",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -216,12 +214,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-
 				06CFAD3E2163AC700039651B /* HomeViewController.swift in Sources */,
-
-				06CFAD3E2163AC700039651B /* ViewController.swift in Sources */,
+				06CFAD3E2163AC700039651B /* HomeViewController.swift in Sources */,
 				43C5CDDE2163E13E00EDB721 /* Location.swift in Sources */,
-
 				06CFAD3C2163AC700039651B /* AppDelegate.swift in Sources */,
 				43C5CDE02163E49600EDB721 /* Park.swift in Sources */,
 			);
