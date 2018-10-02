@@ -13,6 +13,8 @@
 		06CFAD432163AC710039651B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06CFAD422163AC710039651B /* Assets.xcassets */; };
 		06CFAD462163AC710039651B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06CFAD442163AC710039651B /* LaunchScreen.storyboard */; };
 		422912B33C3640EA64CB7882 /* Pods_map_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1940793B038A500DD560C177 /* Pods_map_app.framework */; };
+		43C5CDDE2163E13E00EDB721 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C5CDDD2163E13E00EDB721 /* Location.swift */; };
+		43C5CDE02163E49600EDB721 /* Park.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C5CDDF2163E49600EDB721 /* Park.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,8 @@
 		06CFAD472163AC710039651B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0CEF772CACFDFE7304ADCC97 /* Pods-map-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-map-app.debug.xcconfig"; path = "Pods/Target Support Files/Pods-map-app/Pods-map-app.debug.xcconfig"; sourceTree = "<group>"; };
 		1940793B038A500DD560C177 /* Pods_map_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_map_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		43C5CDDD2163E13E00EDB721 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		43C5CDDF2163E49600EDB721 /* Park.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Park.swift; sourceTree = "<group>"; };
 		D775E7D17A31D24A0A1BBDC0 /* Pods-map-app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-map-app.release.xcconfig"; path = "Pods/Target Support Files/Pods-map-app/Pods-map-app.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -67,6 +71,8 @@
 				06CFAD422163AC710039651B /* Assets.xcassets */,
 				06CFAD442163AC710039651B /* LaunchScreen.storyboard */,
 				06CFAD472163AC710039651B /* Info.plist */,
+				43C5CDDD2163E13E00EDB721 /* Location.swift */,
+				43C5CDDF2163E49600EDB721 /* Park.swift */,
 			);
 			path = "map-app";
 			sourceTree = "<group>";
@@ -210,8 +216,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+
 				06CFAD3E2163AC700039651B /* HomeViewController.swift in Sources */,
+
+				06CFAD3E2163AC700039651B /* ViewController.swift in Sources */,
+				43C5CDDE2163E13E00EDB721 /* Location.swift in Sources */,
+
 				06CFAD3C2163AC700039651B /* AppDelegate.swift in Sources */,
+				43C5CDE02163E49600EDB721 /* Park.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
