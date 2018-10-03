@@ -26,7 +26,8 @@ class MapViewController: UIViewController {
     
     func populateMap() {
         
-        let url = URL(string: "mapbox://styles/mapbox/streets-v10")
+        //let url = URL(string: "mapbox://styles/mapbox/streets-v10")
+        let url = URL(string: "mapbox://styles/ellegover/cjmr1ebfq98g92smzkj9a0a4i")
         let mapView = MGLMapView(frame: view.bounds, styleURL: url)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         guard let lat = latlon.latitude, let lon = latlon.longitude else { return }
