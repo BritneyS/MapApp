@@ -13,13 +13,21 @@ class MapViewController: UIViewController {
     
     // MARK: Properties
     var latlon: (latitude: Double?, longitude: Double?)
-
+    var isZoomEnabled: Bool?
+    var isPitchEnabled: Bool?
+    
     // MARK: - Override Methods
    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         populateMap()
+        setMapProperties()
+        setNavBarProperties()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = false
     }
  
     // MARK: - Methods
@@ -35,8 +43,19 @@ class MapViewController: UIViewController {
         view.addSubview(mapView)
     }
     
+    func setMapProperties() {
+        
+        isZoomEnabled = true
+        isPitchEnabled = true
+    }
     
-    
+    func setNavBarProperties() {
+        
+        navigationController?.navigationBar.barTintColor = UIColor.black
+
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
+    }
     
     
     
