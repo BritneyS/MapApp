@@ -8,6 +8,10 @@
 
 import Foundation
 
+class ResultsArray: Codable {
+    var results = [ParsedPark]()
+}
+
 class ParsedPark: Codable {
     var name: String?
     var the_geom: Geometry

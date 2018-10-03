@@ -19,12 +19,17 @@ class HomeViewController: UIViewController {
     
     var locations: [Location] = []
     var selectedIndex: Int?
+    var parks: [ParsedPark] = []
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         populateData()
+        let url = self.parksURL()
+        let jsonString = performParkRequest(with: url)
+        print("Received JSON string \(jsonString)")
+        
     }
     
     //MARK: Methods
@@ -91,16 +96,29 @@ extension HomeViewController {
         return url!
     }
     
-    func performParkRequest(with url: URL) -> Data? {
+    func performParkRequest(with url: URL) -> String /*Data? */{
         do {
-            return try Data(contentsOf: url)
+            //return try Data(contentsOf: url)
+            return try String(contentsOf: url)
         } catch {
             print("Download Error: \(error.localizedDescription)")
 //            showNetworkError()
-            return nil
+            //return nil
+            return ""
         }
     }
     
+    //loads JSON data into app model
+    func parse(data: Data) -> [ParsedPark] {
+        do {
+            let decoder = JSONDecoder()
+            let result = try decoder.decode(ResultsArray.self, from: data)
+            return result.results
+        } catch {
+            print("JSON Error \(error)")
+            return []
+        }
+    }
     
     
 }
