@@ -10,6 +10,9 @@ import UIKit
 import Mapbox
 
 class MapViewController: UIViewController {
+    
+    // MARK: Properties
+    var latlon: (Double, Double)?
 
     // MARK: - Override Methods
    
