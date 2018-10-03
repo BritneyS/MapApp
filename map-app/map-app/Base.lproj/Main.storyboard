@@ -37,7 +37,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="xSM-Xm-8WU" kind="show" id="Aff-oT-kRe"/>
+                                            <segue destination="xSM-Xm-8WU" kind="show" identifier="latLonToMap" id="Aff-oT-kRe"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

@@ -39,7 +39,7 @@ class HomeViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
-        case "":
+        case "latLonToMap":
             guard let mapViewController = segue.destination as? MapViewController else { return }
             let lat = locations[selectedIndex!].latitude
             let lon = locations[selectedIndex!].longitude
