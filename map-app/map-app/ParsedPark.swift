@@ -15,13 +15,13 @@ class ParsedPark: Codable {
 }
 
 class Geometry: Codable {
-    var coordinates: [[[[Double?]]]] = [
-                [
-                    [
-                        [1.00, 2.00]
-                    ]
-                ]
-    ]
+    var coordinates: [[[[Double?]]]]/* = [
+                                            [
+                                                [
+                                                    [1.00, 2.00]
+                                                ]
+                                            ]
+                                        ] */
     
     var lat: Double {
         guard let latitude = coordinates[0][0][0][1] else { return 0.0 }
