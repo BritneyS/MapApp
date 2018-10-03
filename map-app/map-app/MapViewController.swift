@@ -10,6 +10,9 @@ import UIKit
 import Mapbox
 
 class MapViewController: UIViewController {
+    
+    // MARK: Properties
+    var latlon: (latitude: Double?, longitude: Double?)
 
     // MARK: - Override Methods
    
@@ -23,10 +26,12 @@ class MapViewController: UIViewController {
     
     func populateMap() {
         
-        let url = URL(string: "mapbox://styles/mapbox/streets-v10")
+        //let url = URL(string: "mapbox://styles/mapbox/streets-v10")
+        let url = URL(string: "mapbox://styles/ellegover/cjmr1ebfq98g92smzkj9a0a4i")
         let mapView = MGLMapView(frame: view.bounds, styleURL: url)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        mapView.setCenter(CLLocationCoordinate2D(latitude: 42.371373, longitude: -83.066100), zoomLevel: 9, animated: false)
+        guard let lat = latlon.latitude, let lon = latlon.longitude else { return }
+        mapView.setCenter(CLLocationCoordinate2D(latitude: lat, longitude: lon), zoomLevel: 15, animated: false)
         view.addSubview(mapView)
     }
     

@@ -32,7 +32,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.396078431372549" green="0.396078431372549" blue="0.396078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
-                                            <segue destination="xSM-Xm-8WU" kind="show" id="Aff-oT-kRe"/>
+                                            <segue destination="xSM-Xm-8WU" kind="show" identifier="latLonToMap" id="Aff-oT-kRe"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
