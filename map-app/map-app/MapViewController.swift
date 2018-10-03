@@ -12,7 +12,7 @@ import Mapbox
 class MapViewController: UIViewController {
     
     // MARK: Properties
-    var latlon: (latitude: Double, longitude: Double)?
+    var latlon: (latitude: Double?, longitude: Double?)
 
     // MARK: - Override Methods
    
@@ -29,8 +29,8 @@ class MapViewController: UIViewController {
         let url = URL(string: "mapbox://styles/mapbox/streets-v10")
         let mapView = MGLMapView(frame: view.bounds, styleURL: url)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        mapView.setCenter(CLLocationCoordinate2D(latitude: latlon!.latitude, longitude: latlon!.longitude), zoomLevel: 15, animated: false)
-        print("\(latlon!.latitude), \(latlon!.longitude)")
+        guard let lat = latlon.latitude, let lon = latlon.longitude else { return }
+        mapView.setCenter(CLLocationCoordinate2D(latitude: lat, longitude: lon), zoomLevel: 15, animated: false)
         view.addSubview(mapView)
     }
     
