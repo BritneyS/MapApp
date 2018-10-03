@@ -29,6 +29,8 @@ class MapViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = false
     }
+    
+    
  
     // MARK: - Methods
     
@@ -55,6 +57,10 @@ class MapViewController: UIViewController {
 
         let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
+        
+        var preferredStatusBarStyle: UIStatusBarStyle {
+            return .lightContent
+        }
     }
     
     
