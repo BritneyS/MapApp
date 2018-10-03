@@ -80,3 +80,28 @@ extension HomeViewController: UITableViewDelegate {
     }
 }
 
+//through Parks 2016 Socrata API
+extension HomeViewController {
+    
+    // MARK: Methods
+    
+    func parksURL() -> URL {
+        let urlString = "https://data.detroitmi.gov/resource/pizv-bpt2.json?$select=name,the_geom"
+        let url = URL(string: urlString)
+        return url!
+    }
+    
+    func performParkRequest(with url: URL) -> Data? {
+        do {
+            return try Data(contentsOf: url)
+        } catch {
+            print("Download Error: \(error.localizedDescription)")
+//            showNetworkError()
+            return nil
+        }
+    }
+    
+    
+    
+}
+
