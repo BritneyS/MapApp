@@ -71,7 +71,7 @@ extension HomeViewController: UITableViewDataSource{
         let sortedParks = parks.sorted(by: { (p1,p2) -> Bool in return p1.name?.localizedStandardCompare(p2.name!) == .orderedAscending })
         let location = sortedParks[indexPath.row]
         cell.textLabel?.text = location.name
-        cell.textLabel?.textColor = UIColor.whiteg
+        cell.textLabel?.textColor = UIColor.white
         cell.textLabel?.font = UIFont.systemFont(ofSize: 20)
         return cell
     }
