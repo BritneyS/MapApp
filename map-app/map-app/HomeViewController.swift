@@ -73,6 +73,12 @@ extension HomeViewController: UITableViewDataSource{
         cell.textLabel?.text = location.name
         cell.textLabel?.textColor = UIColor.white
         cell.textLabel?.font = UIFont.systemFont(ofSize: 20)
+        
+        /// sets background color of cell when cell is selected
+        let backgroundView = UIView()
+        let selectedCellColor = UIColor(red: 64/255, green: 167/255, blue: 152/255, alpha: 1)
+        backgroundView.backgroundColor = selectedCellColor
+        cell.selectedBackgroundView = backgroundView
         return cell
     }
     
