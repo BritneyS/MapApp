@@ -50,8 +50,8 @@ class HomeViewController: UIViewController {
         case "latLonToMap":
             guard let mapViewController = segue.destination as? MapViewController else { return }
             guard let selectedIndex = selectedIndex else { return }
-            let lat = locations[selectedIndex].latitude
-            let lon = locations[selectedIndex].longitude
+            let lat = parks[selectedIndex].the_geom.lat
+            let lon = parks[selectedIndex].the_geom.lon
             mapViewController.latlon = (latitude: lat, longitude: lon)
         default:
             return
