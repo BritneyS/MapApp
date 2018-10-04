@@ -12,11 +12,12 @@ import Mapbox
 class MapViewController: UIViewController {
     
     // MARK: Properties
+    
     var latlon: (latitude: Double?, longitude: Double?)
     var isZoomEnabled: Bool?
     var isPitchEnabled: Bool?
     
-    // MARK: - Override Methods
+    // MARK: - Lifecycle Methods
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,12 +31,11 @@ class MapViewController: UIViewController {
         navigationController?.isNavigationBarHidden = false
     }
     
-    
- 
     // MARK: - Methods
     
     func populateMap() {
         
+        /// Uncomment this url line to use Mapbox pre-set map style
         //let url = URL(string: "mapbox://styles/mapbox/streets-v10")
         let url = URL(string: "mapbox://styles/ellegover/cjmr1ebfq98g92smzkj9a0a4i")
         let mapView = MGLMapView(frame: view.bounds, styleURL: url)
@@ -62,7 +62,4 @@ class MapViewController: UIViewController {
             return .lightContent
         }
     }
-    
-    
-    
 }

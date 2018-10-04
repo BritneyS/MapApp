@@ -11,10 +11,10 @@ import Foundation
 class ParsedPark: Codable {
     var name: String?
     var the_geom: Geometry
-    
 }
 
 class Geometry: Codable {
+    
     var coordinates: [[[[Double?]]]]
     
     var lat: Double {
