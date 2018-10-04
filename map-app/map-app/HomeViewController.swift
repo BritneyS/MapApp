@@ -17,33 +17,20 @@ class HomeViewController: UIViewController {
 
     //MARK: Properties
     
-    var locations: [Location] = []
+ //   var locations: [Location] = []
     var selectedIndex: Int?
     var parks: [ParsedPark] = []
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //populateData()
 
         let url = self.parksURL()
-        let jsonString = performParkRequest(with: url)
-        print("Received JSON string \(jsonString)")
-        self.parks = parse(data: jsonString!)!
-        print("\(parks[0].name)")
+        guard let jsonString = performParkRequest(with: url) else { return }
+        self.parks = parse(data: jsonString) ?? []
     }
     
     //MARK: Methods
-
-//    func populateData() {
-//        let locationDatabase = LocationDatabase()
-//        for location in locationDatabase.locationDatabase {
-//            locations.append(location)
-//
-//        }
-//    }
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
@@ -72,14 +59,13 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //return locations.count
         return parks.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "LocationCell", for: indexPath)
-        let location = parks[indexPath.row] as! ParsedPark
+        let location = parks[indexPath.row]
         cell.textLabel?.text = location.name
         cell.textLabel?.textColor = UIColor.white
         cell.textLabel?.font = UIFont.systemFont(ofSize: 20)
@@ -114,15 +100,13 @@ extension HomeViewController {
         return url!
     }
     
-    func performParkRequest(with url: URL) -> Data? /*String*/ {
+    func performParkRequest(with url: URL) -> Data? {
         do {
             return try Data(contentsOf: url)
-           // return try String(contentsOf: url)
         } catch {
             print("Download Error: \(error.localizedDescription)")
-//            showNetworkError()
+            showNetworkError()
             return nil
-            //return ""
         }
     }
     
@@ -131,13 +115,19 @@ extension HomeViewController {
         do {
             let decoder = JSONDecoder()
             let result = try decoder.decode([ParsedPark].self, from: data)
-            //print("Results: \(result.results)")
-            print("Result: \(result[0].name), \(result[0].the_geom.lat), \(result[0].the_geom.lon)")
             return result
         } catch {
             print("JSON Error \(error)")
             return nil
         }
+    }
+    
+    func showNetworkError() {
+        let alert = UIAlertController(title: "Uh Oh!", message: "There was an error accessing the iTunes Store. " + "Please try again", preferredStyle: .alert)
+        
+        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
     }
     
     

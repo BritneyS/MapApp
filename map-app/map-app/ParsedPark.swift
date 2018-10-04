@@ -8,10 +8,6 @@
 
 import Foundation
 
-//class ResultsArray: Codable {
-//    var results = [ParsedPark]()
-//}
-
 class ParsedPark: Codable {
     var name: String?
     var the_geom: Geometry
@@ -19,13 +15,7 @@ class ParsedPark: Codable {
 }
 
 class Geometry: Codable {
-    var coordinates: [[[[Double?]]]]/* = [
-                                            [
-                                                [
-                                                    [1.00, 2.00]
-                                                ]
-                                            ]
-                                        ] */
+    var coordinates: [[[[Double?]]]]
     
     var lat: Double {
         guard let latitude = coordinates[0][0][0][1] else { return 0.0 }
