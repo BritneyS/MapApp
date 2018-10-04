@@ -18,6 +18,7 @@ class HomeViewController: UIViewController {
     
     var selectedIndex: Int?
     var parks: [ParsedPark] = []
+    var sortedParks: [ParsedPark] = []
     
     // MARK: Lifecycle Methods
     
@@ -45,8 +46,8 @@ class HomeViewController: UIViewController {
         case "latLonToMap":
             guard let mapViewController = segue.destination as? MapViewController else { return }
             guard let selectedIndex = selectedIndex else { return }
-            let lat = parks[selectedIndex].the_geom.lat
-            let lon = parks[selectedIndex].the_geom.lon
+            let lat = sortedParks[selectedIndex].the_geom.lat
+            let lon = sortedParks[selectedIndex].the_geom.lon
             mapViewController.latlon = (latitude: lat, longitude: lon)
         default:
             return
@@ -68,7 +69,7 @@ extension HomeViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "LocationCell", for: indexPath)
-        let sortedParks = parks.sorted(by: { (p1,p2) -> Bool in return p1.name?.localizedStandardCompare(p2.name!) == .orderedAscending })
+        sortedParks = parks.sorted(by: { (p1,p2) -> Bool in return p1.name?.localizedStandardCompare(p2.name!) == .orderedAscending })
         let location = sortedParks[indexPath.row]
         cell.textLabel?.text = location.name
         cell.textLabel?.textColor = UIColor.white
