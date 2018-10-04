@@ -68,10 +68,10 @@ extension HomeViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "LocationCell", for: indexPath)
-        let sortedParks = parks.sorted(by: { $0.name! < $1.name! })
+        let sortedParks = parks.sorted(by: { (p1,p2) -> Bool in return p1.name?.localizedStandardCompare(p2.name!) == .orderedAscending })
         let location = sortedParks[indexPath.row]
         cell.textLabel?.text = location.name
-        cell.textLabel?.textColor = UIColor.white
+        cell.textLabel?.textColor = UIColor.whiteg
         cell.textLabel?.font = UIFont.systemFont(ofSize: 20)
         return cell
     }
