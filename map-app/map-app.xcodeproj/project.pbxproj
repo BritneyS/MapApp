@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		06B4403F216538780062BEDF /* ParsedPark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B4403E216538780062BEDF /* ParsedPark.swift */; };
 		06CFAD3C2163AC700039651B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CFAD3B2163AC700039651B /* AppDelegate.swift */; };
 		06CFAD3E2163AC700039651B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CFAD3D2163AC700039651B /* HomeViewController.swift */; };
 		06CFAD412163AC700039651B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06CFAD3F2163AC700039651B /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		06B4403E216538780062BEDF /* ParsedPark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsedPark.swift; sourceTree = "<group>"; };
 		06CFAD382163AC700039651B /* map-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "map-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		06CFAD3B2163AC700039651B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		06CFAD3D2163AC700039651B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				43C5CDDF2163E49600EDB721 /* Park.swift */,
 				43C5CDE32163F5DC00EDB721 /* LocationDatabase.swift */,
 				43C5CDE5216404ED00EDB721 /* MapViewController.swift */,
+				06B4403E216538780062BEDF /* ParsedPark.swift */,
 			);
 			path = "map-app";
 			sourceTree = "<group>";
@@ -216,6 +219,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06B4403F216538780062BEDF /* ParsedPark.swift in Sources */,
 				06CFAD3E2163AC700039651B /* HomeViewController.swift in Sources */,
 				43C5CDE42163F5DC00EDB721 /* LocationDatabase.swift in Sources */,
 				06CFAD3E2163AC700039651B /* HomeViewController.swift in Sources */,
