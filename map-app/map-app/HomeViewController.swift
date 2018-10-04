@@ -10,27 +10,35 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    //MARK: - Outlets
+    // MARK: - Outlets
     
     @IBOutlet weak var titleLabel: UILabel!
     
-
-    //MARK: Properties
+    // MARK: Properties
     
- //   var locations: [Location] = []
     var selectedIndex: Int?
     var parks: [ParsedPark] = []
-
-
+    
+    // MARK: Lifecycle Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let url = self.parksURL()
+        
+        getParkData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = true
+    }
+    
+    // MARK: Methods
+    
+    func getParkData() {
+        
+        guard let url = self.parksURL() else { return }
         guard let jsonString = performParkRequest(with: url) else { return }
         self.parks = parse(data: jsonString) ?? []
     }
-    
-    //MARK: Methods
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
@@ -45,17 +53,12 @@ class HomeViewController: UIViewController {
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        navigationController?.isNavigationBarHidden = true
-    }
-    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
-
 }
 
-//MARK: - TableView Data Source Methods
+// MARK: - TableView Data Source Methods
 
 extension HomeViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -75,11 +78,9 @@ extension HomeViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
-    
-    
 }
 
-//MARK: - TableViewDelegate Methods
+// MARK: - TableViewDelegate Methods
 
 extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
@@ -89,15 +90,16 @@ extension HomeViewController: UITableViewDelegate {
     }
 }
 
-//through Parks 2016 Socrata API
+// MARK: - API Call
+/// Referencing City of Detroit Parks API
 extension HomeViewController {
     
-    // MARK: Methods
+    // MARK: - Methods
     
-    func parksURL() -> URL {
+    func parksURL() -> URL? {
         let urlString = "https://data.detroitmi.gov/resource/pizv-bpt2.json?$select=name,the_geom"
-        let url = URL(string: urlString)
-        return url!
+        guard let url = URL(string: urlString) else { return nil }
+        return url
     }
     
     func performParkRequest(with url: URL) -> Data? {
@@ -110,7 +112,15 @@ extension HomeViewController {
         }
     }
     
-    //loads JSON data into app model
+    func showNetworkError() {
+        let alert = UIAlertController(title: "Uh Oh!", message: "There was an error accessing the API. " + " Please try again", preferredStyle: .alert)
+        
+        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    /// Loads JSON data into app model ParsedPark
     func parse(data: Data) -> [ParsedPark]? {
         do {
             let decoder = JSONDecoder()
@@ -121,15 +131,5 @@ extension HomeViewController {
             return nil
         }
     }
-    
-    func showNetworkError() {
-        let alert = UIAlertController(title: "Uh Oh!", message: "There was an error accessing the iTunes Store. " + "Please try again", preferredStyle: .alert)
-        
-        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alert.addAction(action)
-        present(alert, animated: true, completion: nil)
-    }
-    
-    
 }
 

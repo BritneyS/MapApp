@@ -70,15 +70,15 @@
 			children = (
 				06CFAD3B2163AC700039651B /* AppDelegate.swift */,
 				06CFAD3D2163AC700039651B /* HomeViewController.swift */,
-				06CFAD3F2163AC700039651B /* Main.storyboard */,
-				06CFAD422163AC710039651B /* Assets.xcassets */,
-				06CFAD442163AC710039651B /* LaunchScreen.storyboard */,
-				06CFAD472163AC710039651B /* Info.plist */,
+				43C5CDE5216404ED00EDB721 /* MapViewController.swift */,
 				43C5CDDD2163E13E00EDB721 /* Location.swift */,
 				43C5CDDF2163E49600EDB721 /* Park.swift */,
-				43C5CDE32163F5DC00EDB721 /* LocationDatabase.swift */,
-				43C5CDE5216404ED00EDB721 /* MapViewController.swift */,
 				06B4403E216538780062BEDF /* ParsedPark.swift */,
+				43C5CDE32163F5DC00EDB721 /* LocationDatabase.swift */,
+				06CFAD3F2163AC700039651B /* Main.storyboard */,
+				06CFAD442163AC710039651B /* LaunchScreen.storyboard */,
+				06CFAD422163AC710039651B /* Assets.xcassets */,
+				06CFAD472163AC710039651B /* Info.plist */,
 			);
 			path = "map-app";
 			sourceTree = "<group>";
