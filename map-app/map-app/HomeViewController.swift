@@ -25,22 +25,25 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        populateData()
+        //populateData()
 
         let url = self.parksURL()
         let jsonString = performParkRequest(with: url)
         print("Received JSON string \(jsonString)")
+        self.parks = parse(data: jsonString!)!
+        print("\(parks[0].name)")
     }
     
     //MARK: Methods
 
-    func populateData() {
-        let locationDatabase = LocationDatabase()
-        for location in locationDatabase.locationDatabase {
-            locations.append(location)
-            
-        }
-    }
+//    func populateData() {
+//        let locationDatabase = LocationDatabase()
+//        for location in locationDatabase.locationDatabase {
+//            locations.append(location)
+//
+//        }
+//    }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
@@ -69,13 +72,14 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return locations.count
+        //return locations.count
+        return parks.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "LocationCell", for: indexPath)
-        let location = locations[indexPath.row] as! Park
+        let location = parks[indexPath.row] as! ParsedPark
         cell.textLabel?.text = location.name
         cell.textLabel?.textColor = UIColor.white
         cell.textLabel?.font = UIFont.systemFont(ofSize: 20)
@@ -110,27 +114,29 @@ extension HomeViewController {
         return url!
     }
     
-    func performParkRequest(with url: URL) -> String /*Data? */{
+    func performParkRequest(with url: URL) -> Data? /*String*/ {
         do {
-            //return try Data(contentsOf: url)
-            return try String(contentsOf: url)
+            return try Data(contentsOf: url)
+           // return try String(contentsOf: url)
         } catch {
             print("Download Error: \(error.localizedDescription)")
 //            showNetworkError()
-            //return nil
-            return ""
+            return nil
+            //return ""
         }
     }
     
     //loads JSON data into app model
-    func parse(data: Data) -> [ParsedPark] {
+    func parse(data: Data) -> [ParsedPark]? {
         do {
             let decoder = JSONDecoder()
-            let result = try decoder.decode(ResultsArray.self, from: data)
-            return result.results
+            let result = try decoder.decode([ParsedPark].self, from: data)
+            //print("Results: \(result.results)")
+            print("Result: \(result[0].name), \(result[0].the_geom.lat), \(result[0].the_geom.lon)")
+            return result
         } catch {
             print("JSON Error \(error)")
-            return []
+            return nil
         }
     }
     

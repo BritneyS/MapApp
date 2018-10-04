@@ -8,9 +8,9 @@
 
 import Foundation
 
-class ResultsArray: Codable {
-    var results = [ParsedPark]()
-}
+//class ResultsArray: Codable {
+//    var results = [ParsedPark]()
+//}
 
 class ParsedPark: Codable {
     var name: String?
